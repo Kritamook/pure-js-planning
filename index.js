@@ -2,8 +2,8 @@ function initMap() {
   const directionsService = new google.maps.DirectionsService();
   const directionsRenderer = new google.maps.DirectionsRenderer();
   const map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 6,
-    center: { lat: 41.85, lng: -87.65 },
+    zoom: 11,
+    center: { lat: 7.878978, lng: 98.398392 },
   });
 
   directionsRenderer.setMap(map);
@@ -35,8 +35,9 @@ function calculateAndDisplayRoute(directionsService, directionsRenderer) {
     })
     .then((response) => {
       directionsRenderer.setDirections(response);
-
+      console.log("RESPONSE =>", response)
       const route = response.routes[0];
+      console.log("ROUTE =>", route)
       const summaryPanel = document.getElementById("directions-panel");
 
       summaryPanel.innerHTML = "";
